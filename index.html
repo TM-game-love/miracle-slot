@@ -1,0 +1,2934 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#050203">
+<title>奇跡体験アンビリバボー！ - Miracle Slot</title>
+
+<style>
+:root{
+  --vh:100dvh;
+  --gold:#f5d47c;
+  --gold2:#b77319;
+  --gold3:#6a3508;
+  --cream:#fff0bf;
+  --ink:#050203;
+  --panel:#0b0507;
+  --purple:#b300c9;
+  --pink:#ff49f2;
+  --line:rgba(255,220,137,.55);
+}
+*{box-sizing:border-box}
+html,body{
+  margin:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  background:#020102
+}
+body{
+  position:fixed;
+  inset:0;
+  color:#fff;
+  font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
+  -webkit-tap-highlight-color:transparent;
+  background:
+    radial-gradient(circle at 50% 31%,rgba(95,0,74,.36),transparent 30%),
+    radial-gradient(circle at 15% 16%,rgba(117,53,0,.26),transparent 26%),
+    radial-gradient(circle at 85% 15%,rgba(117,53,0,.22),transparent 26%),
+    linear-gradient(#100507,#030203 76%);
+}
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.48;
+  background:
+    radial-gradient(circle at 18% 13%,#fff 0 1px,transparent 2px),
+    radial-gradient(circle at 74% 7%,#ffe066 0 1px,transparent 2px),
+    radial-gradient(circle at 34% 39%,#ff64ef 0 1px,transparent 2px),
+    radial-gradient(circle at 90% 52%,#fff 0 1px,transparent 2px);
+  background-size:180px 210px,230px 260px,280px 250px,330px 300px;
+}
+.app{
+  width:min(100%,520px);
+  height:var(--vh);
+  margin:0 auto;
+  padding:max(5px,env(safe-area-inset-top)) 7px max(6px,env(safe-area-inset-bottom));
+  display:grid;
+  grid-template-rows:14.5% 16.5% 20.5% 26% 19%;
+  gap:5px;
+  overflow:hidden;
+}
+.frame{
+  position:relative;
+  min-width:0;
+  min-height:0;
+  border:1px solid var(--gold2);
+  border-radius:10px;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.025),transparent 35%),
+    linear-gradient(135deg,#100609,#040203 70%);
+  box-shadow:
+    inset 0 0 18px rgba(255,184,35,.06),
+    0 0 10px rgba(255,155,0,.10);
+}
+.frame:before{
+  content:"";
+  position:absolute;
+  inset:3px;
+  border:1px solid rgba(255,228,151,.42);
+  border-radius:7px;
+  pointer-events:none
+}
+.gold-title{
+  color:var(--gold);
+  text-shadow:0 0 9px rgba(255,183,40,.32);
+}
+
+.top{
+  display:grid;
+  grid-template-columns:22% 1fr 22%;
+  gap:5px;
+  align-items:stretch;
+  min-height:0
+}
+.player{
+  padding:7px 7px 5px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center
+}
+.player .cap{
+  font-size:8px;
+  letter-spacing:.13em;
+  color:var(--gold)
+}
+.player .name{
+  font-size:10px;
+  margin:2px 0 4px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis
+}
+.money{
+  border-top:1px solid rgba(255,216,123,.18);
+  padding-top:3px;
+  font-family:Georgia,serif;
+  font-size:11px;
+  color:#fff2c8;
+  white-space:nowrap
+}
+.money+.money{margin-top:2px}
+.dot{
+  display:inline-block;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  vertical-align:-1px;
+  margin-right:3px;
+  background:radial-gradient(circle,#fff 0 20%,#ca261d 22% 48%,#fff 50% 57%,#7b0b08 59%)
+}
+.gem{
+  display:inline-block;
+  width:10px;
+  height:10px;
+  vertical-align:-1px;
+  margin-right:3px;
+  clip-path:polygon(50% 0,100% 35%,78% 100%,22% 100%,0 35%);
+  background:linear-gradient(135deg,#fff,#de5cff 30%,#4e0877 75%)
+}
+.hero{
+  min-width:0;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:visible
+}
+.crown{
+  position:absolute;
+  top:-2px;
+  font-size:15px;
+  color:#ffe69e;
+  text-shadow:0 0 9px #ffbb19
+}
+.hero-small{
+  font-size:clamp(9px,2.7vw,13px);
+  line-height:1;
+  color:#fff1cf;
+  margin-top:9px
+}
+.hero-main{
+  margin:1px 0 0;
+  font-size:clamp(21px,6vw,35px);
+  line-height:.92;
+  letter-spacing:-.04em;
+  white-space:nowrap;
+  background:linear-gradient(#fff9e1 4%,#ffe99a 30%,#d98b1c 64%,#fff0ac 91%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  filter:
+    drop-shadow(0 2px 0 #4b1d00)
+    drop-shadow(0 0 9px rgba(255,188,43,.4))
+}
+.hero-sub{
+  font-size:7px;
+  color:#f3dfad;
+  margin-top:3px;
+  white-space:nowrap;
+  letter-spacing:.06em
+}
+.actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows:1fr 1fr;
+  gap:4px
+}
+.iconbtn{
+  border:1px solid #a36517;
+  border-radius:8px;
+  color:#fff0c4;
+  background:linear-gradient(#28130c,#0d0607);
+  padding:0;
+  font:inherit;
+  box-shadow:inset 0 0 0 1px rgba(255,221,130,.20);
+  cursor:pointer
+}
+.iconbtn.wide{grid-column:1/-1}
+.iconbtn b{
+  display:block;
+  font-size:17px;
+  line-height:1
+}
+.iconbtn span{
+  display:block;
+  font-size:7px;
+  margin-top:2px
+}
+
+.info{
+  display:grid;
+  grid-template-columns:31% 42% 27%;
+  gap:5px;
+  min-height:0
+}
+.info .box{
+  padding:7px 7px 5px;
+  text-align:center;
+  overflow:hidden
+}
+.box-title{
+  font-size:9px;
+  letter-spacing:.08em;
+  color:var(--gold);
+  margin-bottom:3px
+}
+.rules{
+  font-size:7px;
+  line-height:1.45;
+  text-align:left;
+  color:#f8edcf
+}
+.target{
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center
+}
+.target-word{
+  font-size:clamp(13px,3.8vw,20px);
+  line-height:1.12;
+  color:#ffe38a;
+  font-weight:700;
+  text-shadow:0 0 8px rgba(255,190,47,.32)
+}
+.scorebox{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center
+}
+.score-label{
+  font-family:Georgia,serif;
+  color:#eed590;
+  font-size:8px
+}
+.score-value{
+  font-family:Georgia,serif;
+  color:#ffe9a4;
+  font-size:clamp(20px,6vw,30px);
+  line-height:1
+}
+.score-value small{font-size:.38em}
+.score-sub{
+  font-size:6.5px;
+  color:#c7b78e;
+  line-height:1.3;
+  margin-top:3px
+}
+
+.word-zone{
+  position:relative;
+  min-height:0;
+  display:grid;
+  grid-template-rows:27% 1fr;
+  padding:5px 5px 7px;
+  border-radius:12px;
+  background:
+    radial-gradient(circle at 50% 80%,rgba(209,0,221,.22),transparent 43%),
+    linear-gradient(#16080d,#050203);
+  border:1px solid #a46a18;
+  box-shadow:
+    inset 0 0 0 3px #26110c,
+    inset 0 0 0 4px rgba(255,225,137,.23)
+}
+.word-zone:after{
+  content:"";
+  position:absolute;
+  inset:4px;
+  border:1px dashed rgba(255,218,115,.15);
+  border-radius:8px;
+  pointer-events:none
+}
+.word-header{
+  align-self:center;
+  text-align:center;
+  font-size:11px;
+  letter-spacing:.13em;
+  color:#ffeab1;
+  text-shadow:0 0 8px rgba(255,194,48,.28);
+  z-index:2
+}
+.reels{
+  min-height:0;
+  display:grid;
+  grid-template-columns:repeat(12,minmax(0,1fr));
+  gap:2px;
+  align-items:stretch;
+  z-index:2
+}
+.reel{
+  min-width:0;
+  min-height:0;
+  position:relative;
+  overflow:hidden;
+  border-radius:5px;
+  background:linear-gradient(#fff0b1,#e1ad49 55%,#f5d57f);
+  border:1px solid #9d6419;
+  box-shadow:
+    inset 0 0 0 1px #fff0b1,
+    inset 0 -5px 9px rgba(76,31,0,.14),
+    0 0 5px rgba(255,187,52,.15)
+}
+.reel:before,.reel:after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  height:20%;
+  z-index:4;
+  pointer-events:none
+}
+.reel:before{
+  top:0;
+  background:linear-gradient(rgba(78,37,0,.25),transparent)
+}
+.reel:after{
+  bottom:0;
+  background:linear-gradient(transparent,rgba(78,37,0,.20))
+}
+.reel-track{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  will-change:transform
+}
+.symbol{
+  flex:0 0 100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#24120a;
+  font-weight:900;
+  font-size:clamp(19px,6vw,30px);
+  line-height:1;
+  text-shadow:0 1px 0 rgba(255,255,255,.45)
+}
+.reel.correct{
+  animation:tileGlow .28s ease-in-out 5 alternate;
+  box-shadow:
+    inset 0 0 0 2px #fff5b4,
+    0 0 12px #ffea67,
+    0 0 22px #ff27e6
+}
+@keyframes tileGlow{
+  to{
+    filter:brightness(1.38);
+    transform:translateY(-1px)
+  }
+}
+
+.history{
+  padding:6px 7px;
+  display:grid;
+  grid-template-rows:auto 1fr;
+  min-height:0
+}
+.section-title{
+  text-align:center;
+  color:#ffe6a1;
+  font-size:10px;
+  letter-spacing:.12em;
+  margin:0 0 4px
+}
+.history-grid{
+  min-height:0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-auto-rows:1fr;
+  column-gap:9px;
+  overflow:hidden
+}
+.hist{
+  display:grid;
+  grid-template-columns:25px 1fr auto;
+  gap:4px;
+  align-items:center;
+  border-bottom:1px solid rgba(255,218,125,.10);
+  font-size:6.8px;
+  min-width:0
+}
+.hist .num{
+  color:#fff2cc;
+  text-align:center;
+  border:1px solid rgba(228,184,106,.35);
+  border-radius:99px;
+  padding:1px 2px
+}
+.hist .word{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  color:#f5e8c4
+}
+.hist .pts{
+  color:#e0c276;
+  white-space:nowrap
+}
+
+.bottom{
+  min-height:0;
+  position:relative;
+  overflow:hidden;
+  display:grid;
+  grid-template-rows:24px 1fr 16px;
+  gap:2px;
+  padding:5px 7px 4px;
+  border-radius:15px 15px 0 0;
+  background:
+    radial-gradient(ellipse at 50% 66%,rgba(255,0,236,.28),transparent 38%),
+    radial-gradient(circle at 10% 78%,rgba(255,170,30,.16),transparent 18%),
+    radial-gradient(circle at 90% 78%,rgba(255,170,30,.14),transparent 18%),
+    linear-gradient(180deg,#1d0a10 0,#100509 40%,#050203 100%);
+  border:1px solid #9d5d17;
+  border-bottom:0;
+  box-shadow:
+    inset 0 0 0 2px rgba(255,221,128,.10),
+    inset 0 0 28px rgba(255,143,0,.11),
+    0 -8px 24px rgba(255,0,213,.08);
+}
+.bottom:before{
+  content:"";
+  position:absolute;
+  inset:4px;
+  border:1px solid rgba(255,222,137,.22);
+  border-radius:11px 11px 0 0;
+  pointer-events:none
+}
+.deckbar{
+  z-index:3;
+  display:grid;
+  grid-template-columns:64px 1fr 64px;
+  align-items:center;
+  gap:5px;
+  color:#e8d19a;
+  font-family:Georgia,serif;
+  font-size:7px
+}
+.deckstat{
+  height:21px;
+  border:1px solid rgba(209,147,46,.42);
+  border-radius:6px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  background:rgba(5,2,3,.62)
+}
+.deckstat b{
+  font-size:9px;
+  color:#fff0b4
+}
+.fever-mini{
+  height:21px;
+  border:1px solid rgba(209,147,46,.42);
+  border-radius:6px;
+  padding:3px 5px;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:5px;
+  background:rgba(5,2,3,.62)
+}
+.fever-track{
+  height:5px;
+  border-radius:99px;
+  overflow:hidden;
+  border:1px solid #8d581d;
+  background:#050203
+}
+.fever-fill{
+  width:0;
+  height:100%;
+  background:linear-gradient(90deg,#52105a,#e100df 55%,#fff0a4);
+  box-shadow:0 0 7px #ff28ef;
+  transition:width .35s ease
+}
+.button-stage{
+  z-index:2;
+  position:relative;
+  min-height:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.button-stage:before,.button-stage:after{
+  content:"";
+  position:absolute;
+  top:50%;
+  width:57px;
+  height:57px;
+  transform:translateY(-50%);
+  border-radius:50%;
+  border:2px solid #b47420;
+  box-shadow:
+    inset 0 0 0 3px #321707,
+    0 0 12px rgba(255,178,31,.20);
+  background:
+    radial-gradient(circle at 35% 30%,#fff3a8 0 4%,transparent 5%),
+    repeating-conic-gradient(#9f5a18 0 14deg,#251006 15deg 29deg);
+  opacity:.88
+}
+.button-stage:before{left:3px}
+.button-stage:after{right:3px}
+.spin-halo{
+  position:absolute;
+  width:84%;
+  height:94%;
+  border-radius:999px;
+  pointer-events:none;
+  border:1px solid rgba(255,224,133,.38);
+  box-shadow:
+    0 0 17px rgba(255,20,232,.24),
+    inset 0 0 17px rgba(255,173,31,.08);
+  animation:haloBreathe 1.15s ease-in-out infinite alternate
+}
+@keyframes haloBreathe{
+  to{
+    filter:brightness(1.32);
+    box-shadow:
+      0 0 26px rgba(255,20,232,.52),
+      0 0 12px rgba(255,220,85,.35),
+      inset 0 0 22px rgba(255,173,31,.12)
+  }
+}
+.spin{
+  position:relative;
+  z-index:4;
+  width:78%;
+  height:91%;
+  max-height:112px;
+  min-height:0;
+  border:0;
+  border-radius:999px;
+  font:inherit;
+  cursor:pointer;
+  color:#fff4d2;
+  background:
+    radial-gradient(circle at 50% 16%,rgba(255,255,255,.92) 0 2.5%,rgba(255,144,255,.45) 5%,transparent 15%),
+    radial-gradient(ellipse at 50% 54%,#a814a6 0 19%,#6a086a 36%,#30032f 58%,#0e010f 74%);
+  box-shadow:
+    inset 0 0 0 4px #9f5b17,
+    inset 0 0 0 7px #ffe18e,
+    inset 0 0 0 9px #5c2b08,
+    inset 0 0 34px rgba(255,39,236,.95),
+    0 0 0 3px #351805,
+    0 0 28px rgba(255,0,229,.58),
+    0 8px 17px rgba(0,0,0,.6);
+  text-shadow:
+    0 0 7px #fff,
+    0 0 17px #ff39ef;
+  transition:transform .07s,filter .15s,box-shadow .15s;
+  overflow:hidden
+}
+.spin:before{
+  content:"";
+  position:absolute;
+  inset:5% 10%;
+  border-radius:999px;
+  border-top:1px solid rgba(255,255,255,.55);
+  pointer-events:none
+}
+.spin:after{
+  content:"";
+  position:absolute;
+  top:-60%;
+  left:-25%;
+  width:30%;
+  height:220%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.42),transparent);
+  transform:rotate(18deg);
+  animation:buttonShine 2.1s linear infinite;
+  pointer-events:none
+}
+@keyframes buttonShine{to{left:125%}}
+.spin:active{
+  transform:translateY(2px) scale(.975);
+  filter:brightness(1.3)
+}
+.spin:disabled{
+  cursor:not-allowed;
+  filter:brightness(.72)
+}
+.spin .kicker{
+  display:block;
+  font-family:Georgia,serif;
+  font-size:6.8px;
+  letter-spacing:.18em;
+  color:#ffd877;
+  margin-bottom:1px
+}
+.spin b{
+  display:block;
+  font-size:clamp(24px,7.5vw,37px);
+  letter-spacing:.11em;
+  line-height:.98
+}
+.spin small{
+  display:block;
+  margin-top:4px;
+  font-size:7px;
+  letter-spacing:.13em;
+  color:#ffe6a0
+}
+.bottom.spinning .spin{
+  animation:spinPulse .22s ease-in-out infinite alternate;
+  box-shadow:
+    inset 0 0 0 4px #9f5b17,
+    inset 0 0 0 7px #fff1a8,
+    inset 0 0 38px rgba(255,39,236,1),
+    0 0 34px rgba(255,0,229,.82),
+    0 0 16px rgba(255,220,75,.38)
+}
+.bottom.spinning .spin-halo{animation-duration:.28s}
+@keyframes spinPulse{
+  to{
+    filter:brightness(1.35);
+    transform:scale(1.012)
+  }
+}
+.deck-caption{
+  z-index:3;
+  text-align:center;
+  font-size:6.6px;
+  color:#8f805f;
+  letter-spacing:.13em;
+  white-space:nowrap
+}
+
+.overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:30;
+  align-items:center;
+  justify-content:center;
+  background:radial-gradient(circle,rgba(145,0,135,.30),rgba(0,0,0,.86));
+  pointer-events:none
+}
+.overlay.show{display:flex}
+.winmsg{
+  text-align:center;
+  animation:pulse .42s ease-in-out infinite alternate;
+  filter:drop-shadow(0 0 18px #ff38ef)
+}
+.winmsg .a{
+  font-size:20px;
+  color:#fff4cc
+}
+.winmsg .b{
+  font-size:clamp(52px,15vw,82px);
+  line-height:.9;
+  font-weight:900;
+  background:linear-gradient(#fff,#ffe68a,#ff9b22,#fff1b3);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent
+}
+.winmsg .c{
+  font-size:24px;
+  color:#ffebb0
+}
+@keyframes pulse{
+  to{transform:scale(1.07)}
+}
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:max(12px,env(safe-area-inset-bottom));
+  z-index:40;
+  transform:translate(-50%,12px);
+  opacity:0;
+  transition:.18s;
+  background:#16090e;
+  border:1px solid #b87827;
+  color:#ffe4a4;
+  border-radius:999px;
+  padding:7px 11px;
+  font-size:10px;
+  white-space:nowrap;
+  pointer-events:none
+}
+.toast.show{
+  opacity:1;
+  transform:translate(-50%,0)
+}
+canvas{
+  position:fixed;
+  inset:0;
+  z-index:35;
+  pointer-events:none
+}
+
+dialog{
+  width:min(330px,calc(100% - 24px));
+  color:#fff;
+  background:#0d0609;
+  border:1px solid #ad7428;
+  border-radius:12px;
+  padding:15px;
+  font-family:inherit;
+  box-shadow:0 20px 80px #000
+}
+dialog::backdrop{
+  background:rgba(0,0,0,.74)
+}
+.drow{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:9px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  font-size:12px
+}
+.dbtn{
+  border:1px solid #96601f;
+  background:#211012;
+  color:#ffe7ac;
+  border-radius:7px;
+  padding:7px 10px;
+  font:inherit
+}
+input[type=checkbox]{
+  width:19px;
+  height:19px;
+  accent-color:#a015a6
+}
+
+.rush-badge{
+  position:absolute;
+  left:50%;
+  top:3px;
+  transform:translateX(-50%);
+  z-index:8;
+  display:none;
+  padding:3px 10px;
+  border:1px solid #ffe47f;
+  border-radius:999px;
+  background:linear-gradient(180deg,#6f086d,#250327);
+  color:#fff4b7;
+  font-family:Georgia,serif;
+  font-size:8px;
+  letter-spacing:.14em;
+  box-shadow:
+    0 0 12px #ff36ee,
+    inset 0 0 10px rgba(255,225,111,.2);
+  white-space:nowrap
+}
+.bottom.rush .rush-badge{
+  display:block;
+  animation:rushBadge .32s ease-in-out infinite alternate
+}
+.bottom.rush{
+  box-shadow:
+    inset 0 0 0 2px rgba(255,236,143,.18),
+    inset 0 0 34px rgba(255,0,232,.28),
+    0 -8px 30px rgba(255,0,213,.28),
+    0 0 24px rgba(255,210,67,.16);
+}
+.bottom.rush .spin{
+  background:
+    radial-gradient(circle at 50% 15%,rgba(255,255,255,.95) 0 3%,rgba(255,244,129,.55) 5%,transparent 15%),
+    radial-gradient(ellipse at 50% 54%,#ff41ef 0 15%,#9d0b98 34%,#4e064e 56%,#150116 75%);
+  box-shadow:
+    inset 0 0 0 4px #b87821,
+    inset 0 0 0 7px #fff19a,
+    inset 0 0 0 9px #6c350b,
+    inset 0 0 38px rgba(255,73,240,1),
+    0 0 0 3px #351805,
+    0 0 32px rgba(255,0,229,.85),
+    0 0 18px rgba(255,221,71,.45);
+}
+.bottom.rush .fever-fill{
+  background:linear-gradient(90deg,#ffcf38,#fff6a5,#ff4ff0);
+  box-shadow:
+    0 0 11px #fff09a,
+    0 0 17px #ff37ed
+}
+@keyframes rushBadge{
+  to{
+    filter:brightness(1.55);
+    transform:translateX(-50%) scale(1.04)
+  }
+}
+
+@media(max-height:690px){
+  .app{
+    grid-template-rows:13.5% 16% 20% 27% 19.5%;
+    gap:4px
+  }
+  .rules{font-size:6.3px}
+  .hero-main{font-size:clamp(20px,5.7vw,31px)}
+  .hist{font-size:6.2px}
+  .bottom{
+    grid-template-rows:20px 1fr 12px;
+    padding-top:3px
+  }
+  .deckbar{font-size:6px}
+  .deckstat,.fever-mini{height:18px}
+  .spin b{font-size:clamp(21px,6.7vw,32px)}
+  .spin .kicker{display:none}
+  .spin small{font-size:6.5px}
+}
+@media(min-width:521px){
+  .app{
+    border-left:1px solid rgba(255,210,115,.10);
+    border-right:1px solid rgba(255,210,115,.10)
+  }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="fx"></canvas>
+
+<main class="app">
+
+<section class="top">
+
+  <div class="player frame">
+    <div class="cap">PLAYER</div>
+    <div class="name">Miracle Master</div>
+    <div class="money">
+      <i class="dot"></i>
+      <span id="points">24,000</span>
+    </div>
+    <div class="money">
+      <i class="gem"></i>
+      BEST <span id="best">0</span>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="crown">♛</div>
+    <div class="hero-small">奇跡体験</div>
+    <div class="hero-main">アンビリバボー！</div>
+    <div class="hero-sub">12文字を並べて奇跡を起こせ！</div>
+  </header>
+
+  <div class="actions">
+    <button class="iconbtn wide" id="share">
+      <b>↗</b><span>シェア</span>
+    </button>
+    <button class="iconbtn" id="rank">
+      <b>♛</b><span>BEST</span>
+    </button>
+    <button class="iconbtn" id="settingsBtn">
+      <b>⚙</b><span>設定</span>
+    </button>
+  </div>
+
+</section>
+
+<section class="info">
+
+  <div class="box frame">
+    <div class="box-title">ルール</div>
+    <div class="rules">
+      「奇跡体験アンビリバボー！」<br>
+      12文字をシャッフル。<br>
+      正しい位置が多いほど高得点。<br>
+      FEVER 100%で確変突入。<br>
+      確変は高確率×5回！
+    </div>
+  </div>
+
+  <div class="box frame target">
+    <div class="box-title">目標ワード</div>
+    <div class="target-word">
+      奇跡体験<br>
+      アンビリバボー！
+    </div>
+  </div>
+
+  <div class="box frame scorebox">
+    <div class="box-title">現在のスコア</div>
+    <div class="score-label">SCORE</div>
+    <div class="score-value">
+      <span id="score">0</span><small> Pt</small>
+    </div>
+    <div class="score-sub">
+      一致 <span id="matched">0</span>/12<br>
+      COMBO <span id="combo">×1.0</span>
+    </div>
+  </div>
+
+</section>
+
+<section class="word-zone">
+  <div class="word-header">生成ワード</div>
+  <div class="reels" id="reels"></div>
+</section>
+
+<section class="history frame">
+  <div class="section-title">生成ワード履歴</div>
+  <div class="history-grid" id="history"></div>
+</section>
+
+<section class="bottom" id="bottomDeck">
+
+  <div class="deckbar">
+
+    <div class="deckstat">
+      <span>BET</span>
+      <b>500</b>
+    </div>
+
+    <div class="fever-mini">
+      <span>FEVER</span>
+      <div class="fever-track">
+        <div class="fever-fill" id="feverFill"></div>
+      </div>
+      <b id="feverText">0%</b>
+    </div>
+
+    <div class="deckstat">
+      <span>SOUND</span>
+      <b id="soundState">ON</b>
+    </div>
+
+  </div>
+
+  <div class="button-stage">
+
+    <div class="rush-badge" id="rushBadge">
+      MIRACLE RUSH
+    </div>
+
+    <div class="spin-halo"></div>
+
+    <button class="spin" id="spin">
+      <span class="kicker">MIRACLE CHANCE</span>
+      <b id="spinMain">シャッフル</b>
+      <small id="spinSub">12 REELS ・ 500 Pt</small>
+    </button>
+
+  </div>
+
+  <div class="deck-caption">
+    TAP TO SHUFFLE — ALL RESULTS ARE RANDOM
+  </div>
+
+</section>
+
+</main>
+
+<div class="overlay" id="overlay">
+  <div class="winmsg">
+    <div class="a">MIRACLE!</div>
+    <div class="b">完全一致</div>
+    <div class="c">+50,000 Pt</div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<dialog id="settings">
+
+  <h3 class="gold-title" style="margin:0 0 6px">
+    設定
+  </h3>
+
+  <div class="drow">
+    <span>スロット効果音</span>
+    <input type="checkbox" id="sound" checked>
+  </div>
+
+  <div class="drow">
+    <span>フラッシュ演出</span>
+    <input type="checkbox" id="flash" checked>
+  </div>
+
+  <div class="drow">
+    <span>ポイント初期化</span>
+    <button class="dbtn" id="reset">RESET</button>
+  </div>
+
+  <div style="text-align:right;margin-top:11px">
+    <button class="dbtn" id="close">閉じる</button>
+  </div>
+
+</dialog>
+
+<script>
+(() => {
+
+"use strict";
+
+/* ========================================
+   VIEWPORT
+======================================== */
+
+function fitViewport(){
+
+  const h = Math.round(
+    window.visualViewport?.height ||
+    window.innerHeight
+  );
+
+  document.documentElement.style.setProperty(
+    "--vh",
+    h + "px"
+  );
+
+}
+
+fitViewport();
+
+addEventListener(
+  "resize",
+  fitViewport,
+  {passive:true}
+);
+
+addEventListener(
+  "orientationchange",
+  () => setTimeout(fitViewport,120),
+  {passive:true}
+);
+
+window.visualViewport?.addEventListener(
+  "resize",
+  fitViewport,
+  {passive:true}
+);
+
+
+/* ========================================
+   SLOT DATA
+======================================== */
+
+const TARGET_KANJI =
+  Array.from("奇跡体験");
+
+const TARGET_KANJI_POOL =
+  Array.from("知識力技能根性奇跡体験");
+
+const TARGET_KATAKANA =
+  Array.from("アンビリバボー");
+
+const TARGET_KATAKANA_POOL =
+  Array.from("アンビリバボーミラクルン");
+
+/*
+  ★ 修正箇所
+  最後の「！」を固定にしない
+*/
+const TARGET_SYMBOL_POOL =
+  Array.from("！？★☆");
+
+const TARGET = [
+  ...TARGET_KANJI,
+  ...TARGET_KATAKANA,
+  "！"
+];
+
+/*
+  リール回転中に表示する全文字
+*/
+const SPIN_POOL = [
+  ...TARGET_KANJI_POOL,
+  ...TARGET_KATAKANA_POOL,
+  ...TARGET_SYMBOL_POOL
+];
+
+const BET = 500;
+const START = 999999;
+
+const $ = id =>
+  document.getElementById(id);
+
+
+/* ========================================
+   STATE
+======================================== */
+
+let points =
+  +(localStorage.getItem("miracle_v01_points") || START);
+
+let best =
+  +(localStorage.getItem("miracle_v01_best") || 0);
+
+let score = 0;
+let combo = 1;
+let heat = 0;
+
+let rushSpins = 0;
+let inRush = false;
+let spinning = false;
+let spinNo = 0;
+
+let soundOn =
+  localStorage.getItem("miracle2_sound") !== "0";
+
+let flashOn =
+  localStorage.getItem("miracle2_flash") !== "0";
+
+let current = generateResult();
+
+$("sound").checked = soundOn;
+$("flash").checked = flashOn;
+
+
+/* ========================================
+   SAVE / UI
+======================================== */
+
+function save(){
+
+  localStorage.setItem(
+    "miracle_v01_points",
+    points
+  );
+
+  localStorage.setItem(
+    "miracle_v01_best",
+    best
+  );
+
+}
+
+function sync(){
+
+  $("points").textContent =
+    points.toLocaleString();
+
+  $("best").textContent =
+    best.toLocaleString();
+
+  $("score").textContent =
+    score.toLocaleString();
+
+  $("combo").textContent =
+    "×" + combo.toFixed(1);
+
+  $("feverFill").style.width =
+    heat + "%";
+
+  $("feverText").textContent =
+    inRush
+      ? "RUSH"
+      : Math.round(heat) + "%";
+
+  $("soundState").textContent =
+    soundOn ? "ON" : "OFF";
+
+  $("bottomDeck").classList.toggle(
+    "rush",
+    inRush
+  );
+
+  $("rushBadge").textContent =
+    inRush
+      ? `MIRACLE RUSH  残り${rushSpins}回`
+      : "MIRACLE RUSH";
+
+  if(!spinning){
+
+    $("spinMain").textContent =
+      inRush
+        ? "確変シャッフル"
+        : "シャッフル";
+
+    $("spinSub").textContent =
+      inRush
+        ? `HIGH CHANCE ・ 残り${rushSpins}回`
+        : "12 REELS ・ 500 Pt";
+
+  }
+
+  save();
+
+}
+
+
+/* ========================================
+   NORMAL RESULT
+======================================== */
+
+function generateResult(){
+
+  const result = [];
+
+  /*
+    1〜4リール
+    漢字
+  */
+  for(let i=0;i<4;i++){
+
+    result.push(
+      TARGET_KANJI_POOL[
+        (Math.random() * TARGET_KANJI_POOL.length) | 0
+      ]
+    );
+
+  }
+
+  /*
+    5〜11リール
+    カタカナ
+  */
+  for(let i=0;i<7;i++){
+
+    result.push(
+      TARGET_KATAKANA_POOL[
+        (Math.random() * TARGET_KATAKANA_POOL.length) | 0
+      ]
+    );
+
+  }
+
+  /*
+    ★ 12リール目
+
+    以前：
+      result.push("！");
+
+    ↓
+
+    「！」「？」「★」「☆」から抽選
+  */
+  result.push(
+    TARGET_SYMBOL_POOL[
+      (Math.random() * TARGET_SYMBOL_POOL.length) | 0
+    ]
+  );
+
+  return result;
+
+}
+
+
+/* ========================================
+   REELS
+======================================== */
+
+function createReels(){
+
+  const root = $("reels");
+
+  root.innerHTML = "";
+
+  current.forEach((ch,i) => {
+
+    const reel =
+      document.createElement("div");
+
+    reel.className = "reel";
+    reel.dataset.i = i;
+
+    const track =
+      document.createElement("div");
+
+    track.className = "reel-track";
+
+    const symbol =
+      document.createElement("div");
+
+    symbol.className = "symbol";
+    symbol.textContent = ch;
+
+    track.appendChild(symbol);
+    reel.appendChild(track);
+    root.appendChild(reel);
+
+  });
+
+}
+
+
+/* ========================================
+   AUDIO
+======================================== */
+
+let audioCtx = null;
+let masterGain = null;
+let spinNoise = null;
+let correctStops = 0;
+
+function ensureAudio(){
+
+  if(!soundOn)
+    return null;
+
+  const AC =
+    window.AudioContext ||
+    window.webkitAudioContext;
+
+  if(!AC)
+    return null;
+
+  if(!audioCtx){
+
+    audioCtx = new AC();
+
+    masterGain =
+      audioCtx.createGain();
+
+    masterGain.gain.value = 0.72;
+
+    masterGain.connect(
+      audioCtx.destination
+    );
+
+  }
+
+  if(audioCtx.state === "suspended"){
+
+    audioCtx.resume().catch(()=>{});
+
+  }
+
+  return audioCtx;
+
+}
+
+function unlockAudio(){
+
+  const c = ensureAudio();
+
+  if(!c)
+    return;
+
+  try{
+
+    const o =
+      c.createOscillator();
+
+    const g =
+      c.createGain();
+
+    g.gain.value = 0.00001;
+
+    o.connect(g);
+    g.connect(masterGain);
+
+    o.start();
+    o.stop(c.currentTime + 0.015);
+
+  }catch(e){}
+
+}
+
+function mkNoiseBuffer(seconds=.25){
+
+  const c = ensureAudio();
+
+  if(!c)
+    return null;
+
+  const n =
+    Math.max(
+      1,
+      Math.floor(
+        c.sampleRate * seconds
+      )
+    );
+
+  const b =
+    c.createBuffer(
+      1,
+      n,
+      c.sampleRate
+    );
+
+  const d =
+    b.getChannelData(0);
+
+  for(let i=0;i<n;i++){
+
+    d[i] =
+      Math.random()*2-1;
+
+  }
+
+  return b;
+
+}
+
+function osc(
+  freq=440,
+  dur=.08,
+  type="sine",
+  vol=.06,
+  delay=0,
+  freqEnd=null
+){
+
+  const c = ensureAudio();
+
+  if(!c)
+    return;
+
+  const t =
+    c.currentTime + delay;
+
+  const o =
+    c.createOscillator();
+
+  const g =
+    c.createGain();
+
+  o.type = type;
+
+  o.frequency.setValueAtTime(
+    Math.max(1,freq),
+    t
+  );
+
+  if(freqEnd){
+
+    o.frequency
+      .exponentialRampToValueAtTime(
+        Math.max(1,freqEnd),
+        t+dur
+      );
+
+  }
+
+  g.gain.setValueAtTime(
+    .0001,
+    t
+  );
+
+  g.gain.exponentialRampToValueAtTime(
+    Math.max(.0002,vol),
+    t+.006
+  );
+
+  g.gain.exponentialRampToValueAtTime(
+    .0001,
+    t+dur
+  );
+
+  o.connect(g);
+  g.connect(masterGain);
+
+  o.start(t);
+  o.stop(t+dur+.025);
+
+}
+
+function noiseHit(
+  dur=.05,
+  vol=.08,
+  delay=0,
+  filterType="highpass",
+  freq=900
+){
+
+  const c = ensureAudio();
+
+  if(!c)
+    return;
+
+  const t =
+    c.currentTime + delay;
+
+  const s =
+    c.createBufferSource();
+
+  const f =
+    c.createBiquadFilter();
+
+  const g =
+    c.createGain();
+
+  s.buffer =
+    mkNoiseBuffer(
+      Math.max(.08,dur+.02)
+    );
+
+  f.type = filterType;
+  f.frequency.value = freq;
+
+  g.gain.setValueAtTime(
+    Math.max(.0002,vol),
+    t
+  );
+
+  g.gain.exponentialRampToValueAtTime(
+    .0001,
+    t+dur
+  );
+
+  s.connect(f);
+  f.connect(g);
+  g.connect(masterGain);
+
+  s.start(t);
+  s.stop(t+dur+.02);
+
+}
+
+function leverSound(){
+
+  ensureAudio();
+
+  osc(
+    118,
+    .085,
+    "sine",
+    .18,
+    0,
+    54
+  );
+
+  osc(
+    310,
+    .045,
+    "triangle",
+    .06,
+    .006,
+    190
+  );
+
+  noiseHit(
+    .040,
+    .15,
+    .009,
+    "highpass",
+    1250
+  );
+
+  osc(
+    980,
+    .024,
+    "square",
+    .026,
+    .016,
+    590
+  );
+
+  if(navigator.vibrate)
+    navigator.vibrate(18);
+
+}
+
+function startWhirr(){
+
+  const c = ensureAudio();
+
+  if(!c || spinNoise)
+    return;
+
+  const src =
+    c.createBufferSource();
+
+  const bp =
+    c.createBiquadFilter();
+
+  const g =
+    c.createGain();
+
+  src.buffer =
+    mkNoiseBuffer(.45);
+
+  src.loop = true;
+
+  bp.type = "bandpass";
+  bp.frequency.value = 760;
+  bp.Q.value = .55;
+
+  g.gain.setValueAtTime(
+    .0001,
+    c.currentTime
+  );
+
+  g.gain.exponentialRampToValueAtTime(
+    .055,
+    c.currentTime+.08
+  );
+
+  src.connect(bp);
+  bp.connect(g);
+  g.connect(masterGain);
+
+  src.start();
+
+  spinNoise = {src,g};
+
+  osc(
+    72,
+    .34,
+    "sawtooth",
+    .035,
+    0,
+    150
+  );
+
+  osc(
+    145,
+    .34,
+    "triangle",
+    .018,
+    0,
+    245
+  );
+
+  let t=0;
+
+  for(let i=0;i<10;i++){
+
+    noiseHit(
+      .012,
+      .025,
+      t,
+      "highpass",
+      2000
+    );
+
+    t += .055;
+
+  }
+
+}
+
+function stopWhirr(){
+
+  if(
+    !audioCtx ||
+    !spinNoise
+  )
+    return;
+
+  try{
+
+    const t =
+      audioCtx.currentTime;
+
+    spinNoise.g.gain
+      .cancelScheduledValues(t);
+
+    spinNoise.g.gain
+      .setValueAtTime(
+        Math.max(
+          .0001,
+          spinNoise.g.gain.value
+        ),
+        t
+      );
+
+    spinNoise.g.gain
+      .exponentialRampToValueAtTime(
+        .0001,
+        t+.055
+      );
+
+    spinNoise.src.stop(
+      t+.065
+    );
+
+  }catch(e){}
+
+  spinNoise = null;
+
+}
+
+function reelClack(
+  i,
+  correct=false
+){
+
+  ensureAudio();
+
+  osc(
+    165,
+    .060,
+    "sine",
+    .14,
+    0,
+    66
+  );
+
+  noiseHit(
+    .026,
+    .17,
+    0,
+    "highpass",
+    1500
+  );
+
+  osc(
+    760+i*6,
+    .028,
+    "square",
+    .025,
+    .004,
+    470
+  );
+
+  if(correct){
+
+    correctStops++;
+
+    setTimeout(
+      () =>
+        correctDing(
+          .72 +
+          correctStops*.025
+        ),
+      22
+    );
+
+  }
+
+  if(navigator.vibrate){
+
+    navigator.vibrate(
+      correct
+        ? 20
+        : 9
+    );
+
+  }
+
+}
+
+function correctDing(rate=1){
+
+  const base =
+    980 * rate;
+
+  osc(
+    base,
+    .18,
+    "sine",
+    .075,
+    0
+  );
+
+  osc(
+    base*1.5,
+    .23,
+    "sine",
+    .050,
+    .022
+  );
+
+  osc(
+    base*2,
+    .12,
+    "triangle",
+    .022,
+    .035
+  );
+
+}
+
+function smallWin(){
+
+  [
+    523.25,
+    659.25,
+    783.99,
+    1046.5
+  ].forEach((f,i) => {
+
+    osc(
+      f,
+      .18,
+      "triangle",
+      .070,
+      i*.060
+    );
+
+    osc(
+      f*2,
+      .11,
+      "sine",
+      .025,
+      i*.060+.016
+    );
+
+  });
+
+  noiseHit(
+    .025,
+    .035,
+    .30,
+    "highpass",
+    2600
+  );
+
+}
+
+function jackpot(){
+
+  stopWhirr();
+
+  const seq = [
+    392,
+    523.25,
+    659.25,
+    783.99,
+    1046.5,
+    1318.5,
+    1568
+  ];
+
+  seq.forEach((f,i) => {
+
+    osc(
+      f,
+      .34,
+      "triangle",
+      .09,
+      i*.075
+    );
+
+    osc(
+      f*2,
+      .19,
+      "sine",
+      .032,
+      i*.075+.015
+    );
+
+  });
+
+  for(let i=0;i<14;i++){
+
+    const d =
+      .55+i*.055;
+
+    osc(
+      1350+
+      Math.random()*1250,
+      .055,
+      "triangle",
+      .025,
+      d
+    );
+
+    noiseHit(
+      .020,
+      .020,
+      d,
+      "highpass",
+      2200
+    );
+
+  }
+
+  if(navigator.vibrate){
+
+    navigator.vibrate([
+      30,35,30,35,70
+    ]);
+
+  }
+
+}
+
+
+/* ========================================
+   MIRACLE RUSH
+======================================== */
+
+function rushEnterSound(){
+
+  [
+    392,
+    523.25,
+    659.25,
+    783.99,
+    1046.5,
+    1318.5
+  ].forEach((f,i) => {
+
+    osc(
+      f,
+      .24,
+      "triangle",
+      .075,
+      i*.065
+    );
+
+    osc(
+      f*2,
+      .16,
+      "sine",
+      .028,
+      i*.065+.018
+    );
+
+  });
+
+  setTimeout(() => {
+
+    correctDing(1.12);
+    correctDing(1.30);
+
+  },430);
+
+  if(navigator.vibrate){
+
+    navigator.vibrate([
+      25,30,25,30,80
+    ]);
+
+  }
+
+}
+
+function enterRush(){
+
+  inRush = true;
+  rushSpins = 5;
+  heat = 100;
+
+  rushEnterSound();
+
+  toast(
+    "MIRACLE RUSH 突入！ 高確率 × 5回"
+  );
+
+  if(flashOn)
+    confetti(110);
+
+  sync();
+
+}
+
+function leaveRush(){
+
+  inRush = false;
+  rushSpins = 0;
+  heat = 18;
+
+  toast(
+    "MIRACLE RUSH 終了"
+  );
+
+  sync();
+
+}
+
+
+/* ========================================
+   RUSH RESULT
+======================================== */
+
+function makeRushResult(){
+
+  const result = [];
+
+  /*
+    漢字
+    75%で正解
+  */
+  for(let i=0;i<4;i++){
+
+    if(Math.random() < .75){
+
+      result.push(
+        TARGET_KANJI[i]
+      );
+
+    }else{
+
+      result.push(
+        TARGET_KANJI_POOL[
+          (Math.random() *
+            TARGET_KANJI_POOL.length) | 0
+        ]
+      );
+
+    }
+
+  }
+
+  /*
+    カタカナ
+    75%で正解
+  */
+  for(let i=0;i<7;i++){
+
+    if(Math.random() < .75){
+
+      result.push(
+        TARGET_KATAKANA[i]
+      );
+
+    }else{
+
+      result.push(
+        TARGET_KATAKANA_POOL[
+          (Math.random() *
+            TARGET_KATAKANA_POOL.length) | 0
+        ]
+      );
+
+    }
+
+  }
+
+  /*
+    ★ 12リール目も固定廃止
+
+    75%：
+      目標「！」
+
+    25%：
+      ？ / ★ / ☆ など
+  */
+  if(Math.random() < .75){
+
+    result.push("！");
+
+  }else{
+
+    const wrongSymbols =
+      TARGET_SYMBOL_POOL.filter(
+        ch => ch !== "！"
+      );
+
+    result.push(
+      wrongSymbols[
+        (Math.random() *
+          wrongSymbols.length) | 0
+      ]
+    );
+
+  }
+
+  return result;
+
+}
+
+
+/* ========================================
+   SPIN
+======================================== */
+
+async function spin(){
+
+  if(spinning)
+    return;
+
+  if(
+    !inRush &&
+    points < BET
+  ){
+
+    toast(
+      "ポイント不足です。設定からRESETできます"
+    );
+
+    return;
+
+  }
+
+  spinning = true;
+
+  $("spin").disabled = true;
+
+  correctStops = 0;
+
+  $("bottomDeck")
+    .classList.add("spinning");
+
+  $("spinMain").textContent =
+    inRush
+      ? "確変回転中…"
+      : "回転中…";
+
+  $("spinSub").textContent =
+    inRush
+      ? `MIRACLE RUSH ・ 残り${rushSpins}回`
+      : "REELS SPINNING";
+
+  if(!inRush){
+
+    points -= BET;
+
+  }else{
+
+    points += BET;
+
+  }
+
+  sync();
+
+  leverSound();
+
+  setTimeout(
+    startWhirr,
+    70
+  );
+
+  const next =
+    inRush
+      ? makeRushResult()
+      : generateResult();
+
+  const reels =
+    [
+      ...document
+        .querySelectorAll(".reel")
+    ];
+
+  const tasks =
+    reels.map(
+      (r,i) =>
+        spinOne(
+          r,
+          i,
+          next[i]
+        )
+    );
+
+  await Promise.all(tasks);
+
+  stopWhirr();
+
+  current = next;
+
+  settle();
+
+  if(inRush){
+
+    rushSpins--;
+
+    if(rushSpins <= 0){
+
+      leaveRush();
+
+    }
+
+  }
+
+  spinning = false;
+
+  $("spin").disabled = false;
+
+  $("bottomDeck")
+    .classList.remove("spinning");
+
+  $("spinMain").textContent =
+    inRush
+      ? "確変シャッフル"
+      : "シャッフル";
+
+  $("spinSub").textContent =
+    inRush
+      ? `HIGH CHANCE ・ 残り${rushSpins}回`
+      : "12 REELS ・ 500 Pt";
+
+}
+
+
+/* ========================================
+   ONE REEL
+======================================== */
+
+function spinOne(
+  reel,
+  i,
+  finalChar
+){
+
+  return new Promise(resolve => {
+
+    const track =
+      reel.querySelector(
+        ".reel-track"
+      );
+
+    const seq = [];
+
+    for(
+      let k=0;
+      k<9+i;
+      k++
+    ){
+
+      /*
+        ★ 回転中も
+        記号を含む全文字から抽選
+      */
+      seq.push(
+        SPIN_POOL[
+          (Math.random() *
+            SPIN_POOL.length) | 0
+        ]
+      );
+
+    }
+
+    seq.push(finalChar);
+
+    track.innerHTML = "";
+
+    seq.forEach(ch => {
+
+      const s =
+        document.createElement(
+          "div"
+        );
+
+      s.className =
+        "symbol";
+
+      s.textContent =
+        ch;
+
+      track.appendChild(s);
+
+    });
+
+    track.style.transition =
+      "none";
+
+    track.style.transform =
+      "translateY(0)";
+
+    track.offsetHeight;
+
+    const dur =
+      620 + i*58;
+
+    track.style.transition =
+      `transform ${dur}ms cubic-bezier(.08,.76,.18,1)`;
+
+    track.style.transform =
+      `translateY(-${(seq.length-1)*100}%)`;
+
+    setTimeout(() => {
+
+      track.style.transition =
+        "none";
+
+      track.style.transform =
+        "translateY(0)";
+
+      track.innerHTML =
+        `<div class="symbol">${finalChar}</div>`;
+
+      reelClack(
+        i,
+        finalChar === TARGET[i]
+      );
+
+      resolve();
+
+    },dur+18);
+
+  });
+
+}
+
+
+/* ========================================
+   RESULT
+======================================== */
+
+function settle(){
+
+  spinNo++;
+
+  let match = 0;
+
+  document
+    .querySelectorAll(".reel")
+    .forEach((r,i) => {
+
+      r.classList.remove(
+        "correct"
+      );
+
+      if(
+        current[i] === TARGET[i]
+      ){
+
+        match++;
+
+        setTimeout(
+          () =>
+            r.classList.add(
+              "correct"
+            ),
+          40+i*15
+        );
+
+      }
+
+    });
+
+  $("matched").textContent =
+    match;
+
+  let gain =
+    match * 120;
+
+  if(match >= 4)
+    gain += 600;
+
+  if(match >= 6)
+    gain += 1500;
+
+  if(match >= 8)
+    gain += 4000;
+
+  if(match >= 10)
+    gain += 10000;
+
+  if(!inRush){
+
+    if(match === 0){
+
+      heat =
+        Math.max(
+          0,
+          heat-12
+        );
+
+    }else{
+
+      heat =
+        Math.min(
+          100,
+          heat +
+          match*4 +
+          (match>=4 ? 8 : 0)
+        );
+
+    }
+
+  }
+
+  if(match === 12){
+
+    gain = 50000;
+
+    combo =
+      Math.min(
+        3,
+        combo+.5
+      );
+
+    score += gain;
+    points += gain;
+
+    best =
+      Math.max(
+        best,
+        score
+      );
+
+    jackpot();
+    showJackpot();
+    confetti(170);
+
+  }else if(match > 0){
+
+    gain =
+      Math.round(
+        gain * combo
+      );
+
+    combo =
+      Math.min(
+        3,
+        combo+.1
+      );
+
+    score += gain;
+    points += gain;
+
+    best =
+      Math.max(
+        best,
+        score
+      );
+
+    if(match >= 4){
+
+      smallWin();
+
+      if(flashOn)
+        confetti(45);
+
+    }else{
+
+      correctDing();
+
+    }
+
+  }else{
+
+    combo = 1;
+
+  }
+
+  addHistory(
+    gain,
+    match
+  );
+
+  if(
+    !inRush &&
+    heat >= 100
+  ){
+
+    enterRush();
+
+  }else{
+
+    sync();
+
+  }
+
+}
+
+
+/* ========================================
+   HISTORY
+======================================== */
+
+function addHistory(
+  gain,
+  match
+){
+
+  const root =
+    $("history");
+
+  const row =
+    document.createElement(
+      "div"
+    );
+
+  row.className =
+    "hist";
+
+  const text =
+    current.join("");
+
+  row.innerHTML =
+    `<span class="num">${String(spinNo).padStart(3,"0")}</span>
+     <span class="word">${escapeHtml(text)}</span>
+     <span class="pts">${match}一致 ${gain ? "+"+gain.toLocaleString() : "—"}</span>`;
+
+  root.prepend(row);
+
+  while(
+    root.children.length > 10
+  ){
+
+    root.lastChild.remove();
+
+  }
+
+}
+
+function escapeHtml(s){
+
+  return s.replace(
+    /[&<>"']/g,
+    m => ({
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      "\"":"&quot;",
+      "'":"&#39;"
+    }[m])
+  );
+
+}
+
+
+/* ========================================
+   JACKPOT
+======================================== */
+
+function showJackpot(){
+
+  $("overlay")
+    .classList.add("show");
+
+  if(flashOn){
+
+    document.body.animate(
+      [
+        {filter:"brightness(1)"},
+        {filter:"brightness(1.7)"},
+        {filter:"brightness(1)"}
+      ],
+      {
+        duration:380,
+        iterations:2
+      }
+    );
+
+  }
+
+  setTimeout(
+    () =>
+      $("overlay")
+        .classList.remove("show"),
+    1900
+  );
+
+}
+
+
+/* ========================================
+   TOAST
+======================================== */
+
+function toast(text){
+
+  const t =
+    $("toast");
+
+  t.textContent =
+    text;
+
+  t.classList.add(
+    "show"
+  );
+
+  clearTimeout(
+    toast.timer
+  );
+
+  toast.timer =
+    setTimeout(
+      () =>
+        t.classList.remove(
+          "show"
+        ),
+      1700
+    );
+
+}
+
+
+/* ========================================
+   PARTICLES
+======================================== */
+
+const canvas =
+  $("fx");
+
+const g =
+  canvas.getContext("2d");
+
+let particles = [];
+let running = false;
+
+function resizeCanvas(){
+
+  const d =
+    devicePixelRatio || 1;
+
+  canvas.width =
+    innerWidth*d;
+
+  canvas.height =
+    innerHeight*d;
+
+  g.setTransform(
+    d,0,0,d,0,0
+  );
+
+}
+
+resizeCanvas();
+
+addEventListener(
+  "resize",
+  resizeCanvas,
+  {passive:true}
+);
+
+function confetti(n){
+
+  if(!flashOn)
+    return;
+
+  const glyph =
+    ["✦","◆","★","♛"];
+
+  for(
+    let i=0;
+    i<n;
+    i++
+  ){
+
+    particles.push({
+
+      x:
+        innerWidth/2 +
+        (Math.random()-.5)*120,
+
+      y:
+        innerHeight*.45,
+
+      vx:
+        (Math.random()-.5)*8,
+
+      vy:
+        -3-Math.random()*7,
+
+      gr:
+        .18+Math.random()*.08,
+
+      life:
+        65+Math.random()*55,
+
+      s:
+        7+Math.random()*12,
+
+      ch:
+        glyph[
+          (Math.random() *
+            glyph.length) | 0
+        ],
+
+      r:
+        Math.random()*6
+
+    });
+
+  }
+
+  if(!running)
+    draw();
+
+}
+
+function draw(){
+
+  running = true;
+
+  g.clearRect(
+    0,
+    0,
+    innerWidth,
+    innerHeight
+  );
+
+  particles =
+    particles.filter(
+      p => p.life>0
+    );
+
+  particles.forEach(
+    (p,i) => {
+
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += p.gr;
+      p.life--;
+      p.r += .08;
+
+      g.save();
+
+      g.translate(
+        p.x,
+        p.y
+      );
+
+      g.rotate(
+        p.r
+      );
+
+      g.globalAlpha =
+        Math.min(
+          1,
+          p.life/20
+        );
+
+      g.fillStyle =
+        i%3===0
+          ? "#ff55ee"
+          : i%2===0
+            ? "#ffe17c"
+            : "#fff";
+
+      g.font =
+        p.s+"px serif";
+
+      g.fillText(
+        p.ch,
+        0,
+        0
+      );
+
+      g.restore();
+
+    }
+  );
+
+  if(particles.length){
+
+    requestAnimationFrame(
+      draw
+    );
+
+  }else{
+
+    running = false;
+
+  }
+
+}
+
+
+/* ========================================
+   EVENTS
+======================================== */
+
+document.addEventListener(
+  "pointerdown",
+  unlockAudio,
+  {
+    passive:true,
+    once:true
+  }
+);
+
+document.addEventListener(
+  "touchstart",
+  unlockAudio,
+  {
+    passive:true,
+    once:true
+  }
+);
+
+$("spin").addEventListener(
+  "pointerdown",
+  unlockAudio,
+  {passive:true}
+);
+
+$("spin").addEventListener(
+  "click",
+  spin
+);
+
+$("settingsBtn")
+  .addEventListener(
+    "click",
+    () =>
+      $("settings")
+        .showModal()
+  );
+
+$("close")
+  .addEventListener(
+    "click",
+    () =>
+      $("settings")
+        .close()
+  );
+
+$("sound")
+  .addEventListener(
+    "change",
+    e => {
+
+      soundOn =
+        e.target.checked;
+
+      localStorage.setItem(
+        "miracle2_sound",
+        soundOn ? "1" : "0"
+      );
+
+      if(!soundOn){
+
+        stopWhirr();
+
+      }else{
+
+        unlockAudio();
+        leverSound();
+
+      }
+
+      sync();
+
+    }
+  );
+
+$("flash")
+  .addEventListener(
+    "change",
+    e => {
+
+      flashOn =
+        e.target.checked;
+
+      localStorage.setItem(
+        "miracle2_flash",
+        flashOn ? "1" : "0"
+      );
+
+    }
+  );
+
+$("reset")
+  .addEventListener(
+    "click",
+    () => {
+
+      if(
+        confirm(
+          "ポイントとBESTを初期化しますか？"
+        )
+      ){
+
+        points = START;
+        best = 0;
+        score = 0;
+        combo = 1;
+        heat = 0;
+
+        rushSpins = 0;
+        inRush = false;
+
+        spinNo = 0;
+
+        $("history")
+          .innerHTML = "";
+
+        $("matched")
+          .textContent = "0";
+
+        sync();
+
+        toast(
+          "RESETしました"
+        );
+
+      }
+
+    }
+  );
+
+$("rank")
+  .addEventListener(
+    "click",
+    () =>
+      toast(
+        "LOCAL BEST " +
+        best.toLocaleString() +
+        " Pt"
+      )
+  );
+
+$("share")
+  .addEventListener(
+    "click",
+    async() => {
+
+      const text =
+        `奇跡体験アンビリバボー！ SCORE ${score.toLocaleString()} Pt`;
+
+      try{
+
+        if(navigator.share){
+
+          await navigator.share({
+            title:"MIRACLE SLOT",
+            text
+          });
+
+        }else{
+
+          await navigator.clipboard.writeText(
+            text
+          );
+
+          toast(
+            "スコアをコピーしました"
+          );
+
+        }
+
+      }catch(e){}
+
+    }
+  );
+
+
+/* ========================================
+   START
+======================================== */
+
+createReels();
+sync();
+
+})();
+</script>
+
+</body>
+</html>
